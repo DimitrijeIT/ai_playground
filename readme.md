@@ -1,11 +1,23 @@
 # Setup
 Create a folder in wsl (linux 20.03 recomended) and clone the repo
 
-## Install Docker:
-sudo apt get install docker
+Check Ubuntu version with:
+```
+lsb_release -a
+```
 
-Start docker 
-``` sudo dockerd ```
+## Install Docker:
+
+If you don't have Docker unstalled run:
+```
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install docker docker-compose
+```
+
+Start docker:
+``` 
+sudo dockerd
+```
 
 # Build container
 cotnrol + shfit + p and then 'Dev Container: Rebuild Container'
@@ -13,10 +25,10 @@ It will take some time for first install
 This pull docker container with python and install evrything in requirements.txt
 
 # Running
-In WSL
-
-Start docker 
-``` sudo dockerd ```
+In WSL start docker 
+```
+sudo dockerd
+```
 
 Maybe a change of DISPLAY variable is need to run visual applications
 Install xLaunch 
