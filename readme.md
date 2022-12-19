@@ -14,6 +14,13 @@ sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install docker docker-compose
 ```
 
+Start VSCode 
+``` code . ```
+This will install VSCode server on WSl and run VSCode on Windows 
+
+Start docker from VSCode terminal 
+``` sudo dockerd ```
+
 Start docker:
 ``` 
 sudo dockerd
@@ -23,6 +30,8 @@ sudo dockerd
 cotnrol + shfit + p and then 'Dev Container: Rebuild Container'
 It will take some time for first install 
 This pull docker container with python and install evrything in requirements.txt
+
+
 
 # Running
 In WSL start docker 
