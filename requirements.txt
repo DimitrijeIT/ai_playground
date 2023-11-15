@@ -9,3 +9,14 @@ d2l==1.0.0a1.post0
 notebook
 matplotlib
 numpy
+altair
+spacy
+GPUtil
+torchtext
+transformers 
+datasets
+evaluate
+scikit-
+transformers[torch]
+accelerate
+timm

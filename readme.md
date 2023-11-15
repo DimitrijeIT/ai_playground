@@ -8,10 +8,13 @@ lsb_release -a
 
 ## Install Docker:
 
-If you don't have Docker unstalled run:
+If you don't have Docker unstalled run and add user to docker group:
 ```
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install docker docker-compose
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
 ```
 
 Start VSCode 
