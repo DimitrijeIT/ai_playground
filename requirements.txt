@@ -16,7 +16,8 @@ torchtext
 transformers 
 datasets
 evaluate
-scikit-
+# scikit
 transformers[torch]
 accelerate
 timm
+pycocotools
