@@ -1,2 +1,3 @@
 data/
 transformer/huggingface/my_awesome_food_model
+reidentification_ds/
