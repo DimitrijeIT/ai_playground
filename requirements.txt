@@ -21,3 +21,6 @@ transformers[torch]
 accelerate
 timm
 pycocotools
+tiktoken #OpenAI's tokenization lib https://github.com/openai/tiktoken
+pix2tex[gui] #Helper tool from image generate latex forumula https://github.com/lukas-blecher/LaTeX-OCR
+customtkinter
