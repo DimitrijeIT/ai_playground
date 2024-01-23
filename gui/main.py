@@ -1,3 +1,6 @@
+# The ultimate introduction to modern GUIs in Python [ with tkinter ]
+# https://www.youtube.com/watch?si=A89gpiLfBfAUpvuj&t=60666&v=mop6g-c5HEY&feature=youtu.be
+
 import customtkinter as ctk
 from image_widges import *
 from PIL import Image, ImageTk, ImageOps, ImageEnhance, ImageFilter
