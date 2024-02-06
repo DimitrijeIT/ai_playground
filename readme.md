@@ -53,3 +53,5 @@ Import could not be resolved
 Command Palette (Cmd/Ctrl+Shift+P) -> Python Select Interpreter
 and changed it to one matching 'which python' on the command line.
 
+# Install extensions
+cat vscode-extensions.list | xargs -L 1 code --install-extension
