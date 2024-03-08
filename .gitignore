@@ -1,3 +1,6 @@
 data/
 transformer/huggingface/my_awesome_food_model
 reidentification_ds/
+zinc2024/deepchange_dataset
+zinc2024/dataset_small
+
