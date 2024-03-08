@@ -1,6 +1,6 @@
 
 import torch
-
+torch.cuda.empty_cache()
 def evaluate_model(model, tokenizer, dataset):
     model.eval()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -51,9 +51,9 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
 model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
-# Evaluate the model without fine-tuning
-accuracy_before = evaluate_model(model, tokenizer, test_dataset)
-print(f"Accuracy before fine-tuning: {accuracy_before:.2f}")
+# # Evaluate the model without fine-tuning
+# accuracy_before = evaluate_model(model, tokenizer, test_dataset)
+# print(f"Accuracy before fine-tuning: {accuracy_before:.2f}")
 
 # -------------------------------------------------------------------------------------------------
 from transformers import Trainer, TrainingArguments
@@ -87,13 +87,13 @@ tokenized_test_dataset.set_format(type='torch', columns=['input_ids', 'attention
 
 
 
-
 # Define the training arguments
 training_args = TrainingArguments(
     output_dir="./results",
-    num_train_epochs=3,
-    per_device_train_batch_size=8,
+    num_train_epochs=1,
+    per_device_train_batch_size=2,
     per_device_eval_batch_size=8,
+    gradient_accumulation_steps=2,
     warmup_steps=500,
     weight_decay=0.01,
     logging_dir="./logs",
@@ -106,6 +106,7 @@ trainer = Trainer(
     train_dataset=tokenized_train_dataset,
     eval_dataset=tokenized_test_dataset,
 )
+torch.cuda.empty_cache()
 
 # Fine-tune the model
 trainer.train()
@@ -114,6 +115,6 @@ accuracy_after = evaluate_model(model, tokenizer, test_dataset)
 print(f"Accuracy after fine-tuning: {accuracy_after:.2f}")
 
 
-model_save_path = "./bert_imdb_auto_trainer_500_epoch3"
-model.base_model.save_pretrained(model_save_path)
-tokenizer.save_pretrained(model_save_path)
+# model_save_path = "./bert_imdb_auto_trainer_500_epoch3"
+# model.base_model.save_pretrained(model_save_path)
+# tokenizer.save_pretrained(model_save_path)
