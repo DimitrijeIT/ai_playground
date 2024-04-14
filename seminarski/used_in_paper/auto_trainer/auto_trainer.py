@@ -73,7 +73,7 @@ def tokenize_function(examples):
 
 # Load the IMDb dataset
 dataset = load_dataset("imdb")
-small_train_dataset = dataset["train"].shuffle(seed=42).select(range(500))  # Smaller subset for training
+small_train_dataset = dataset["train"].shuffle(seed=42).select(range(1000))  # Smaller subset for training
 # small_test_dataset = dataset["test"].shuffle(seed=42).select(range(100))  # Smaller subset for testing
 small_test_dataset = test_dataset
 
@@ -90,13 +90,17 @@ tokenized_test_dataset.set_format(type='torch', columns=['input_ids', 'attention
 # Define the training arguments
 training_args = TrainingArguments(
     output_dir="./results",
-    num_train_epochs=1,
+    num_train_epochs=3,
     per_device_train_batch_size=2,
     per_device_eval_batch_size=8,
     gradient_accumulation_steps=2,
-    warmup_steps=500,
+    warmup_steps=100,
     weight_decay=0.01,
     logging_dir="./logs",
+    evaluation_strategy='steps',        # Evaluate every `eval_steps`
+    load_best_model_at_end=True,         # Load the best model at the end of training
+    logging_strategy='steps',
+    report_to="tensorboard"
 )
 
 # Initialize the Trainer

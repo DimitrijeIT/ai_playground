@@ -22,8 +22,8 @@ tokenized_test_dataset = test_dataset.map(tokenize_function, batched=True)
 tokenized_train_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
 tokenized_test_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
 
-train_loader = DataLoader(tokenized_train_dataset, batch_size=8, shuffle=True)
-test_loader = DataLoader(tokenized_test_dataset, batch_size=8)
+train_loader = DataLoader(tokenized_train_dataset, batch_size=2, shuffle=True)
+test_loader = DataLoader(tokenized_test_dataset, batch_size=2)
 
 def evaluate(model, dataloader):
     model.eval()
@@ -43,7 +43,7 @@ def evaluate(model, dataloader):
 
 
 model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
-
+model.to(device)
 # accuracy_before = evaluate(model, test_loader)
 # print(f"AutoModelForSequenceClassification: Accuracy before training: {accuracy_before:.2f}")
 

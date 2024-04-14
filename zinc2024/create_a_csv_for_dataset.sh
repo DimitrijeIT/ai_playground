@@ -10,7 +10,7 @@ directory=$1
 output_file="output.csv"
 
 # Write CSV header
-echo "file_name,LABEL" > "$output_file"
+echo "file_name,label" > "$output_file"
 
 # Iterate over files in the directory
 for file in "$directory"/*; do

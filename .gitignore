@@ -3,4 +3,10 @@ transformer/huggingface/my_awesome_food_model
 reidentification_ds/
 zinc2024/deepchange_dataset
 zinc2024/dataset_small
-
+seminarski/used_in_paper/bert_imdb_auto_trainer
+seminarski/used_in_paper/bert_imdb_auto_trainer_500
+seminarski/used_in_paper/bert_imdb_auto_trainer_500_epoch3
+seminarski/used_in_paper/bert_imdb_custom_classifier
+seminarski/used_in_paper/bert_imdb_fine_tunning
+seminarski/vit_cifar10_500examples
+seminarski/used_in_paper/auto_trainer/results/checkpoint-500
