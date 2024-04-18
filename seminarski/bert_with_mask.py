@@ -35,7 +35,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 
 # Load tokenizer and model
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+tokenizer = .from_pretrained('bert-base-uncased')
 model = BertForMaskedLM.from_pretrained('bert-base-uncased')
 model.to(device)
 
