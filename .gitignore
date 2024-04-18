@@ -10,3 +10,4 @@ seminarski/used_in_paper/bert_imdb_custom_classifier
 seminarski/used_in_paper/bert_imdb_fine_tunning
 seminarski/vit_cifar10_500examples
 seminarski/used_in_paper/auto_trainer/results/checkpoint-500
+audio/audio_test_files
