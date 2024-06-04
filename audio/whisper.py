@@ -10,7 +10,9 @@ cuda_available = False
 device = "cuda:0" if cuda_available else "cpu"
 torch_dtype = torch.float16 if cuda_available else torch.float32
 
-model_id = "openai/whisper-large-v3"
+# model_id = "openai/whisper-large-v3"
+# model_id = "openai/whisper-medium"
+model_id = "openai/whisper-tiny"
 
 model = AutoModelForSpeechSeq2Seq.from_pretrained(
     model_id, torch_dtype=torch_dtype, low_cpu_mem_usage=True, use_safetensors=True
@@ -32,10 +34,12 @@ pipe = pipeline(
     device=device,
 )
 
-dataset = load_dataset("distil-whisper/librispeech_long", "clean", split="validation")
-sample = dataset[0]["audio"]
-# sample.to(device)
+# dataset = load_dataset("distil-whisper/librispeech_long", "clean", split="validation")
+# sample = dataset[0]["audio"]
+# # sample.to(device)
 
 # ffmpeg -i Test.m4a output.wav
-result = pipe("Test.m4a")
+file_name = "audio_test_files/test2.wav"
+# result = pipe(file_name)
+result = pipe(file_name, generate_kwargs={"language": "serbian"})
 print(result["text"])
